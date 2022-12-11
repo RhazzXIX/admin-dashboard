@@ -14,6 +14,13 @@
     --baseFont: 'Times New Roman', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
 
   /* * * * * */
 /* Main layout */
@@ -22,7 +29,7 @@
 div#page {
     height: 100vh;
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 260px minmax(712px,1fr);
     grid-template-rows: 174px 1fr;
 }
 
@@ -34,6 +41,9 @@ nav.sidebar {
 header.page {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+
+    padding: 16px;
+    padding-left: 38px;
 }
 
 main.page {
@@ -71,7 +81,6 @@ nav.sidebar ul li img.icon.home {
 
 nav.sidebar ul {
     margin: 36px 0;
-    list-style: none;
 }
 
 nav.sidebar div.logo img.icon{
@@ -134,36 +143,42 @@ nav.sidebar ul.contact img:hover {
   /* * * * * * * * */
 
 header.page {
-    background-color: #BE5CFF;
+    background-color: #823ab2;
     color: white;
 
     display: Grid;
-    grid-template-columns: minmax(400px, 2.2fr) minmax(360px, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 }
 
-header.page section.left {
-    grid-column: 1 / 2;
+header.page section.top {
+    grid-row: 1 / 2;
 
     display: grid;
-    grid-template-rows: 1fr 2fr;
     align-items: center;
 
-    padding: 16px;
-    padding-left: 46px;
+    grid-template-columns: minmax(400px,1fr) auto auto auto;
+    column-gap: 12px;
+
+    padding-right: 36px;
+
+    
 }
 
-section.left
-form#header {
-   margin-bottom: 12px; 
+header.page 
+section.top 
+ a{
+    margin-right: 8px;
 }
 
-section.left
+
+section.top
 form#header 
 input#search {
-    width: min(80%, 480px);
+    width: min(88%, 600px);
     vertical-align: 8px;
 
     appearance: none;
+    outline: none;
     border: 1px solid grey;
     padding: 5px 6px;
     border-radius: 20px;
@@ -171,21 +186,22 @@ input#search {
     font-size: 1.2rem;
 }
 
-section.left
+section.top
+form#header 
+input#search:focus {
+    border: 1px solid #c07ae9;
+    outline: 2px solid #c07ae9;
+}
+
+section.top
 form#header 
 button {
     appearance: none;
     border: none;
-    background-color:  #BE5CFF;
+    background-color:  #823ab2;
 }
 
-section.left
-form#header 
-img.icon:hover {
-    filter:none;
-}
-
-section.left
+section.top
 form#header 
 img.icon:active {
     filter: var(--whiteFilter);
@@ -193,46 +209,84 @@ img.icon:active {
     height: 26px;
 }
 
-header.page section.left img.icon {
+header.page section.top img.icon {
     width: 28px;
     height: 28px;
     filter: var(--whiteFilter);
     margin-right: 8px;
 }
 
+header.page section.top img.icon:hover {
+    filter: none;
+}
+
+
+header.page
+section.bottom {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    
+
+    place-items: center start;
+    column-gap: 12px;
+}
+
 header.page 
-section.left 
+section.bottom
 img.user-avatar {
     width: 52px;
     height: 52px;
-    border: 1px solid black;
+}
+header.page 
+section
+img.user-avatar:hover {
     border-radius: 50%;
-    background-color: rgb(212, 212, 212);
-    filter: invert(98%) sepia(67%) saturate(597%) hue-rotate(28deg) brightness(93%)
-    contrast(93%);
+    box-shadow: 1px 1px 8px white;
 }
 
 header.page
-section.left
-div.user {
-    display: grid;
-    grid-template-columns: 66px 1fr;
-    padding: 6px;
-
-    place-items: center start;
-}
-
-header.page
-section.left
-div.user p > strong {
+section.bottom
+p > strong {
     font-size: 1.8rem;
 }
 
 header.page
-section.left
-div.user a {
-    grid-column: 1 / 2;
+section.bottom 
+ul {
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
+
+header.page
+section.bottom
+button.post {
+    appearance: none;
+    padding: 8px 22px;
+    border-radius: 20px;
+    background-color: #CC8EAF;
+    border: 2px solid;
+    border-color: #FFE4D6 #F9B3B3 #F9B3B3 #FFE4D6;
+    
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    
+    margin: 0 18px;
+}
+
+header.page
+section.bottom
+button.post:hover {
+    text-shadow: 1px 1px 8px #FFE4D6;
+}
+
+header.page
+section.bottom
+button.post:active {
+    border-color: #F9B3B3 #FFE4D6 #FFE4D6 #F9B3B3;
+}
+
+
 
 
 
@@ -244,9 +298,6 @@ main.page {
     color: white;
 }
 
-a {
-    text-decoration: none;
-}
 
 
 
